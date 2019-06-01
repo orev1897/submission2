@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
 	echo fread($content, filesize($fileToUpload));
 		
 	$blobClient->createBlockBlob($containerName, $fileToUpload, $content);
-	header("Location: unggahfoto.php");
+	header("Location: index.php");
 }	
 	
 $listBlobsOptions = new ListBlobsOptions();
@@ -49,7 +49,7 @@ $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
 	<body>
 	<h1> Analisa Gambar dengan Azure Computer Vision: </h1></br>
 			<div>
-			<form action="unggahfoto.php" method="post" enctype="multipart/form-data">
+			<form action="index.php" method="post" enctype="multipart/form-data">
 						<input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""> </br></br>
 						<input type="submit" name="submit" value="Unggah">
 					</form>
